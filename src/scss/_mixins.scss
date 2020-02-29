@@ -1,0 +1,30 @@
+@mixin font-desk-body() {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+}
+
+@mixin font-desk-body-sm() {
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 14px;
+}
+
+@mixin font-desk-h3() {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+@mixin mediaquery--mobile() {
+  @media screen and (max-width: 414px) {
+    @content;
+  }
+}
+
+@mixin centered() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
