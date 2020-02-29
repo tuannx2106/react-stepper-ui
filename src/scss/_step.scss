@@ -19,7 +19,8 @@
 
   @include mediaquery--mobile() {
     flex-direction: row;
-    padding: 16px 12px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
   &:hover,
@@ -29,7 +30,7 @@
 
   &__label {
     margin-top: 22px;
-    color: $cl-black38;
+    color: $cl-black87;
     text-align: center;
     // word-break: break-all;
 
@@ -41,12 +42,13 @@
 
   &__order {
     @include font-desk-body-sm();
-    color: $cl-primary-dark;
     width: 20px;
     height: 20px;
     text-align: center;
     border-radius: 50%;
-    border: 2px solid $cl-primary-light;
+    background-color: $cl-primary;
+    border: 2px solid $cl-primary;
+    color: $cl-white;
   }
 
   &__tail {
@@ -54,7 +56,7 @@
     height: 2px;
     width: calc(50% - 10px);
     top: 25px; // 20 + 5
-    background-color: $cl-primary-light;
+    background-color: $cl-primary;
 
     @include mediaquery--mobile() {
       width: 2px;
@@ -80,24 +82,7 @@
     }
   }
 
-  &.is-visited,
-  &.is-activated {
-    .step__order {
-      background-color: $cl-primary;
-      border-color: $cl-primary;
-      color: $cl-white;
-    }
-
-    .step__label {
-      color: $cl-black87;
-    }
-  }
-
-  &.is-visited .step__tail {
-    background-color: $cl-primary;
-  }
-
-  &.is-activated {
+  &.is-active {
     .step__order {
       position: relative;
 
@@ -115,19 +100,33 @@
       @include font-desk-h3();
     }
 
-    .step__tail--before {
-      background-color: $cl-primary;
-    }
-
     .step__tail--after {
+      background-color: $cl-primary-light;
+
       @include mediaquery--mobile() {
         top: 37px; // 16 + 20 + 1(line-height)
       }
     }
+
+    ~ .step {
+      .step__order {
+        color: $cl-primary-dark;
+        background-color: $cl-white;
+        border-color: $cl-primary-light
+      }
+
+      .step__label {
+        color: $cl-black38;
+      }
+
+      .step__tail {
+        background-color: $cl-primary-light;
+      }
+    }
   }
 
-  &.is-first .step__tail--before,
-  &.is-last .step__tail--after {
+  &:first-child .step__tail--before,
+  &:last-child .step__tail--after {
     height: 0;
   }
 }

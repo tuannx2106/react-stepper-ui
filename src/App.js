@@ -6,19 +6,19 @@ function App() {
     <div className="App">
       <div className="container" style={{ marginTop: '80px' }}>
         <div className="stepper">
-          <div className="step is-first is-visited">
+          <div className="step">
             <p className="step__order">1</p>
             <p className="step__label">Supplier</p>
             <div className="step__tail step__tail--before"></div>
             <div className="step__tail step__tail--after"></div>
           </div>
-          <div className="step is-visited">
+          <div className="step">
             <p className="step__order">2</p>
             <p className="step__label">Basic Information</p>
             <div className="step__tail step__tail--before"></div>
             <div className="step__tail step__tail--after"></div>
           </div>
-          <div className="step is-activated">
+          <div className="step is-active">
             <p className="step__order">3</p>
             <p className="step__label">Language</p>
             <div className="step__tail step__tail--before"></div>
@@ -36,7 +36,7 @@ function App() {
             <div className="step__tail step__tail--before"></div>
             <div className="step__tail step__tail--after"></div>
           </div>
-          <div className="step is-last">
+          <div className="step">
             <p className="step__order">6</p>
             <p className="step__label">Vertical Stepper</p>
             <div className="step__tail step__tail--before"></div>
