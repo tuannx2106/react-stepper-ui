@@ -1,18 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './scss/main.scss'
 import Step from './components/Step'
 import Stepper from './components/Stepper'
 
+const stepLabels = ['Supplier', 'Basic Information', 'Lorem ispsum', 'Some dumb text', 'Vertical Stepper']
+
 const App = props => {
+  const [currentStep, setCurrentStep] = useState(1)
+
   return (
     <div className="container" style={{ marginTop: '80px' }}>
       <Stepper>
-        <Step order={1} label="Supplier" />
-        <Step order={2} label="Basic Information" />
-        <Step order={3} label="Language" isActivated/>
-        <Step order={4} label="Lorem ispsum" />
-        <Step order={5} label="Some dumb text" />
-        <Step order={6} label="Vertical Stepper" />
+        {stepLabels.map((label, index) => (
+          <Step
+            order={index + 1}
+            label={label}
+            isActivated={index === currentStep - 1}
+            onClickStep={() => setCurrentStep(index + 1)}
+          />
+        ))}
       </Stepper>
     </div>
   )
